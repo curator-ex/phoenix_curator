@@ -41,3 +41,15 @@ config :phoenix_curator, PhoenixCurator.Repo,
   database: "phoenix_curator_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :curator, Curator,
+  hooks_module: PhoenixCurator.CuratorHooks,
+  repo: PhoenixCurator.Repo,
+  user_schema: PhoenixCurator.User
+
+config :guardian, Guardian,
+  issuer: "phoenix_curator",
+  ttl: { 1, :days },
+  verify_issuer: true,
+  secret_key: "vif3wei5ba7loetoh3vooB3ieX1oht",
+  serializer: PhoenixCurator.GuardianSerializer

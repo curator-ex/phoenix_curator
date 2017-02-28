@@ -37,7 +37,13 @@ defmodule PhoenixCurator.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+
+     # {:curator, github: "curator-ex/curator"},
+     {:curator, path: "../curator"},
+     # {:guardian, "~> 0.14"},
+     {:guardian, github: "ueberauth/guardian"},
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
