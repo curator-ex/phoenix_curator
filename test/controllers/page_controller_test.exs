@@ -24,8 +24,7 @@ defmodule PhoenixCurator.PageControllerTest do
       conn = get conn, "/secret"
 
       assert Phoenix.Controller.get_flash(conn, :danger) == "Please Log In"
-      # assert Phoenix.ConnTest.redirected_to(conn) == session_path(conn, :new)
-      assert Phoenix.ConnTest.redirected_to(conn) == page_path(conn, :index)
+      assert Phoenix.ConnTest.redirected_to(conn) == session_path(conn, :new)
     end
 
     # test "visiting a secret page w/ a signed_in active user", %{conn: conn} do

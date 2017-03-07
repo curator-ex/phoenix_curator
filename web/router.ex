@@ -39,6 +39,10 @@ defmodule PhoenixCurator.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    get "/sessions", SessionController, :new
+    post "/sessions", SessionController, :create
+    delete "/sessions", SessionController, :delete
   end
 
   scope "/", PhoenixCurator do

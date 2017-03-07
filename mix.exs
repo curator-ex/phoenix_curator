@@ -40,7 +40,9 @@ defmodule PhoenixCurator.Mixfile do
      {:cowboy, "~> 1.0"},
 
      # {:curator, github: "curator-ex/curator"},
-     {:curator, path: "../curator"},
+     # {:curator, path: "../curator"},
+     {:curator, "~> 0.1.0", override: true},
+     {:curator_database_authenticatable, "~> 0.1.0", override: true},
      {:guardian, "~> 0.14"},
     ]
   end
