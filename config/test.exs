@@ -21,11 +21,12 @@ config :phoenix_curator, PhoenixCurator.Repo,
 config :curator, Curator,
   hooks_module: PhoenixCurator.CuratorHooks,
   repo: PhoenixCurator.Repo,
-  user_schema: PhoenixCurator.User
+  user_schema: PhoenixCurator.User,
+  session_handler: Curator.SessionHandlers.Guardian
 
 config :guardian, Guardian,
   issuer: "phoenix_curator",
   ttl: { 1, :days },
   verify_issuer: true,
   secret_key: "vif3wei5ba7loetoh3vooB3ieX1oht",
-  serializer: PhoenixCurator.GuardianSerializer
+  serializer: Curator.UserSerializer

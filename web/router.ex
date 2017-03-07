@@ -7,6 +7,28 @@ defmodule PhoenixCurator.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+
+    plug Curator.Plug.LoadSession
+
+    # Insert other Curator Plugs as necessary:
+    # plug CuratorConfirmable.Plug
+
+    plug Curator.Plug.EnsureResourceOrNoSession, handler: PhoenixCurator.ErrorHandler
+  end
+
+  pipeline :authenticated_browser do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_flash
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+
+    plug Curator.Plug.LoadSession
+
+    # Insert other Curator Plugs as necessary:
+    # plug CuratorConfirmable.Plug
+
+    plug Curator.Plug.EnsureResourceAndSession, handler: PhoenixCurator.ErrorHandler
   end
 
   pipeline :api do
@@ -17,6 +39,10 @@ defmodule PhoenixCurator.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+  end
+
+  scope "/", PhoenixCurator do
+    pipe_through :authenticated_browser # Use the default browser stack
 
     get "/secret", PageController, :secret
   end

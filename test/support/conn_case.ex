@@ -27,6 +27,8 @@ defmodule PhoenixCurator.ConnCase do
 
       import PhoenixCurator.Router.Helpers
 
+      import PhoenixCurator.SessionHelper
+
       # The default endpoint for testing
       @endpoint PhoenixCurator.Endpoint
     end
