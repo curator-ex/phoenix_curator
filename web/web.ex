@@ -52,6 +52,10 @@ defmodule PhoenixCurator.Web do
       import PhoenixCurator.Router.Helpers
       import PhoenixCurator.ErrorHelpers
       import PhoenixCurator.Gettext
+
+      def current_user(conn) do
+        Curator.PlugHelper.current_resource(conn)
+      end
     end
   end
 

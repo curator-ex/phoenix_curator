@@ -20,4 +20,16 @@ defmodule PhoenixCurator.User do
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
   end
+
+  # CuratorRegisterable
+  def create_registration_changeset(user, params \\ %{}) do
+    user
+    |> changeset(params)
+    |> password_changeset(params)
+  end
+
+  def update_registration_changeset(user, params \\ %{}) do
+    user
+    |> changeset(params)
+  end
 end

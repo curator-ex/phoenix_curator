@@ -42,7 +42,8 @@ defmodule PhoenixCurator.Mixfile do
      # {:curator, github: "curator-ex/curator"},
      # {:curator, path: "../curator"},
      {:curator, "~> 0.1.0", override: true},
-     {:curator_database_authenticatable, "~> 0.1.0", override: true},
+     {:curator_database_authenticatable, "~> 0.1.0"},
+     {:curator_registerable, "~> 0.1.0"},
      {:guardian, "~> 0.14"},
     ]
   end

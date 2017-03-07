@@ -1,0 +1,14 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">Edit Account</h2>
+  </div>
+
+  <div class="panel-body">
+    <%= render "form.html", changeset: @changeset,
+                        action: registration_path(@conn, :update) %>
+  </div>
+
+  <div class="panel-footer clearfix">
+    <%= link "Show Account", to: registration_path(@conn, :show), class: "btn btn-info btn-xs pull-right" %>
+  </div>
+</div>
