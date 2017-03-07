@@ -34,3 +34,10 @@
     </ul>
   </div>
 </div>
+
+<%= if current_user(@conn) do %>
+  <%= button "Logout", to: session_path(@conn, :delete), method: :delete, class: "btn btn-danger navbar-btn" %><br/>
+<% else %>
+  <%= button "Login", to: session_path(@conn, :new), class: "btn btn-primary navbar-btn", method: :get %><br/>
+  <%= button "Sign Up", to: registration_path(@conn, :new), class: "btn btn-secondary navbar-btn", method: :get %><br/>
+<% end %>

@@ -40,9 +40,18 @@ defmodule PhoenixCurator.Router do
 
     get "/", PageController, :index
 
+    # CuratorDatabaseAuthenticatable
     get "/sessions", SessionController, :new
     post "/sessions", SessionController, :create
     delete "/sessions", SessionController, :delete
+
+    # CuratorRegisterable
+    resources "/registrations", RegistrationController, only: [:new, :create]
+    get "/registrations/edit", RegistrationController, :edit
+    get "/registrations", RegistrationController, :show
+    put "/registrations", RegistrationController, :update, as: nil
+    patch "/registrations", RegistrationController, :update
+    delete "/registrations", RegistrationController, :delete
   end
 
   scope "/", PhoenixCurator do
