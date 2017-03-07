@@ -6,10 +6,7 @@ defmodule PhoenixCurator.ErrorHandler do
   """
 
   def unauthenticated(conn, %{reason: {:error, reason}}) do
-    # NOTE: If you add a sign_in page you probably want to use this line:
-    # respond(conn, response_type(conn), 401, reason, session_path(conn, :new))
-
-    respond(conn, response_type(conn), 401, reason, page_path(conn, :index))
+    respond(conn, response_type(conn), 401, reason, session_path(conn, :new))
   end
 
   def unauthorized(conn, _params) do
@@ -17,10 +14,7 @@ defmodule PhoenixCurator.ErrorHandler do
   end
 
   def no_resource(conn, %{reason: reason}) do
-    # NOTE: If you add a sign_in page you probably want to use this line:
-    # respond(conn, response_type(conn), 403, reason, session_path(conn, :new))
-
-    respond(conn, response_type(conn), 403, reason, page_path(conn, :index))
+    respond(conn, response_type(conn), 403, reason, session_path(conn, :new))
   end
 
   def already_authenticated(conn, _params) do
