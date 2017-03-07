@@ -41,8 +41,7 @@ defmodule PhoenixCurator.Mixfile do
 
      # {:curator, github: "curator-ex/curator"},
      {:curator, path: "../curator"},
-     # {:guardian, "~> 0.14"},
-     {:guardian, github: "ueberauth/guardian"},
+     {:guardian, "~> 0.14"},
     ]
   end
 
