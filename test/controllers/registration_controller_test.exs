@@ -41,7 +41,7 @@ defmodule PhoenixCurator.RegistrationControllerTest do
   test "creates resource and redirects when data is valid", %{unauthenticated_conn: conn} do
     conn = post conn, registration_path(conn, :create), user: @valid_attrs
 
-    assert Phoenix.Controller.get_flash(conn, :info) == "Account was successfully created."
+    assert Phoenix.Controller.get_flash(conn, :info) == "Account was successfully created. Check your email for a confirmation link."
     assert redirected_to(conn) == "/"
     assert Repo.get_by(User, email: @valid_attrs.email)
   end

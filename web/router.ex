@@ -11,7 +11,7 @@ defmodule PhoenixCurator.Router do
     plug Curator.Plug.LoadSession
 
     # Insert other Curator Plugs as necessary:
-    # plug CuratorConfirmable.Plug
+    plug CuratorConfirmable.Plug
 
     plug Curator.Plug.EnsureResourceOrNoSession, handler: PhoenixCurator.ErrorHandler
   end
@@ -26,7 +26,7 @@ defmodule PhoenixCurator.Router do
     plug Curator.Plug.LoadSession
 
     # Insert other Curator Plugs as necessary:
-    # plug CuratorConfirmable.Plug
+    plug CuratorConfirmable.Plug
 
     plug Curator.Plug.EnsureResourceAndSession, handler: PhoenixCurator.ErrorHandler
   end
@@ -52,6 +52,9 @@ defmodule PhoenixCurator.Router do
     put "/registrations", RegistrationController, :update, as: nil
     patch "/registrations", RegistrationController, :update
     delete "/registrations", RegistrationController, :delete
+
+    # CuratorConfirmable
+    resources "/confirmations", ConfirmationController, only: [:new, :create, :edit]
   end
 
   scope "/", PhoenixCurator do

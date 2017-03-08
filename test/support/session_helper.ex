@@ -31,7 +31,7 @@ defmodule PhoenixCurator.SessionHelper do
     user
     |> PhoenixCurator.User.changeset(attrs)
     |> PhoenixCurator.User.password_changeset(%{password: "TEST_PASSWORD", password_confirmation: "TEST_PASSWORD"})
-    # |> Ecto.Changeset.change(confirmed_at: Timex.now)
+    |> Ecto.Changeset.change(confirmed_at: Timex.now)
     # |> PhoenixCurator.User.approvable_changeset(%{approval_at: Timex.now, approval_status: "approved", approver_id: 0})
     |> PhoenixCurator.Repo.insert!
   end

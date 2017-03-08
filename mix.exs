@@ -19,7 +19,7 @@ defmodule PhoenixCurator.Mixfile do
   def application do
     [mod: {PhoenixCurator, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :bamboo, :timex, :timex_ecto, :tzdata]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,12 +38,14 @@ defmodule PhoenixCurator.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
+     {:bamboo, "~> 0.8"},
 
      # {:curator, github: "curator-ex/curator"},
      # {:curator, path: "../curator"},
      {:curator, "~> 0.1.0", override: true},
      {:curator_database_authenticatable, "~> 0.1.0"},
      {:curator_registerable, "~> 0.1.0"},
+     {:curator_confirmable, "~> 0.1.0"},
      {:guardian, "~> 0.14"},
     ]
   end
