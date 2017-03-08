@@ -2,6 +2,12 @@ defmodule PhoenixCurator.CuratorHooks do
   use PhoenixCurator.Web, :controller
   use Curator.Hooks
 
+  def before_sign_in(user, type) do
+    with :ok <- CuratorConfirmable.Hooks.before_sign_in(user, type) do
+      :ok
+    end
+  end
+
   def after_extension(conn, :registration, user) do
     conn
     |> put_flash(:info, "Account was successfully created. Check your email for a confirmation link.")

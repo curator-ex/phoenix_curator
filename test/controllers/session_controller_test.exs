@@ -76,15 +76,15 @@ defmodule PhoenixCurator.SessionControllerTest do
     assert html_response(conn, 200) =~ "Login"
   end
 
-  # test "does not create resource and renders errors when user is unconfirmed", %{unauthenticated_conn: conn, authorized_user: user} do
-  #   Ecto.Changeset.change(user, confirmed_at: nil)
-  #   |> PhoenixCurator.Repo.update!
+  test "does not create resource and renders errors when user is unconfirmed", %{unauthenticated_conn: conn, authorized_user: user} do
+    Ecto.Changeset.change(user, confirmed_at: nil)
+    |> PhoenixCurator.Repo.update!
 
-  #   conn = post conn, session_path(conn, :create), session: @valid_attrs
+    conn = post conn, session_path(conn, :create), session: @valid_attrs
 
-  #   assert Phoenix.Controller.get_flash(conn, :danger) == "Not Confirmed"
-  #   assert html_response(conn, 200) =~ "Login"
-  # end
+    assert Phoenix.Controller.get_flash(conn, :danger) == "Not Confirmed"
+    assert html_response(conn, 200) =~ "Login"
+  end
 
   # test "does not create resource and renders errors when user is unapproved", %{unauthenticated_conn: conn, authorized_user: user} do
   #   Ecto.Changeset.change(user, approval_status: "pending")
