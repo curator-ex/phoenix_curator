@@ -30,3 +30,6 @@ config :guardian, Guardian,
   verify_issuer: true,
   secret_key: "vif3wei5ba7loetoh3vooB3ieX1oht",
   serializer: Curator.UserSerializer
+
+config :phoenix_curator, PhoenixCurator.Mailer,
+  adapter: Bamboo.LocalAdapter

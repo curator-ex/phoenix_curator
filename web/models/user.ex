@@ -3,12 +3,14 @@ defmodule PhoenixCurator.User do
 
   # Use Curator Modules (as needed).
   use CuratorDatabaseAuthenticatable.Schema
+  use CuratorConfirmable.Schema
 
   schema "users" do
     field :email, :string
 
     # Add Curator Module fields (as needed).
     curator_database_authenticatable_schema
+    curator_confirmable_schema
 
     timestamps
   end
